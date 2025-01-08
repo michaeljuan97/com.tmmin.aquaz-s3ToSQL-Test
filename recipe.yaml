@@ -7,7 +7,7 @@ ComponentDescription: "Loop s3 and insert to db"
 ComponentPublisher: "MICHAEL"
 ComponentConfiguration:
   DefaultConfiguration:
-    DATABASE_URI: "postgresql://test:test@sg.dd-tech.id:5432/postgres"
+    DATABASE_URI: ""
     CLASSIFICATION_PATH: "s3://an021-aquaz-project/gold/classification/prediction-result/"
     TIMESERIES_PATH: "s3://an021-aquaz-project/gold/forecast/result/result_per_shift/"
     HISTORICAL_PATH: "s3://an021-aquaz-project/silver/traceability/dbo/d_castting_historical/"

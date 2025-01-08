@@ -78,7 +78,7 @@ import logging
 #     print("Usage: python main.py <DATABASE_URI> <CLASSIFICATION_PATH> <TIMESERIES_PATH> <HISTORICAL_PATH> <INTERVAL>")
 #     sys.exit(1)
 
-DATABASE_URI = "postgresql://test:test@sg.dd-tech.id:5432/postgres"
+DATABASE_URI = ""
 CLASSIFICATION_PATH = "s3://an021-aquaz-project/gold/classification/prediction-result/"
 TIMESERIES_PATH = "s3://an021-aquaz-project/gold/forecast/result/result_per_shift/" #Ini bisa dihapus, bisa diambil dr classification. Jadiin nama table ML_result aja
 HISTORICAL_PATH = "s3://an021-aquaz-project/silver/traceability/dbo/d_castting_historical/"

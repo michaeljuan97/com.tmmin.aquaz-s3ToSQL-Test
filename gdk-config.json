@@ -1,0 +1,20 @@
+{
+    "component": {
+      "com.tmmin.aquaz-s3ToSQL-TEST": {
+        "author": "MICHAEL",
+        "version": "NEXT_PATCH",
+        "build": {
+          "build_system": "zip",
+          "options": {
+            "zip_name": ""
+          }
+        },
+        "publish": {
+          "bucket": "mlops-iot-gg-artifact-ap-southeast-1-237236537285",
+          "region": "ap-southeast-1"
+        }
+      }
+    },
+    "gdk_version": "1.3.0"
+  }
+  

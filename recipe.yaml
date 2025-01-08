@@ -1,0 +1,34 @@
+---
+RecipeFormatVersion: "2020-01-25"
+ComponentName: "com.tmmin.aquaz-s3ToSQL-TEST"
+ComponentVersion: "1.0.0"
+ComponentType: "aws.greengrass.generic"
+ComponentDescription: "Loop s3 and insert to db"
+ComponentPublisher: "MICHAEL"
+ComponentConfiguration:
+  DefaultConfiguration:
+    DATABASE_URI: "postgresql://test:test@sg.dd-tech.id:5432/postgres"
+    CLASSIFICATION_PATH: "s3://an021-aquaz-project/gold/classification/prediction-result/"
+    TIMESERIES_PATH: "s3://an021-aquaz-project/gold/forecast/result/result_per_shift/"
+    HISTORICAL_PATH: "s3://an021-aquaz-project/silver/traceability/dbo/d_castting_historical/"
+    INTERVAL: 1200
+ComponentDependencies:
+  aws.greengrass.TokenExchangeService:
+    VersionRequirement: ">=0.0.0"
+    DependencyType: "HARD"
+Manifests:
+- Platform:
+    os: "all"
+  Lifecycle:
+    Run: "python3 -u {artifacts:decompressedPath}/com.tmmin.aquaz-s3ToSQL-TEST/main.py\
+    \ {configuration:/DATABASE_URI} {configuration:/CLASSIFICATION_PATH} {configuration:/TIMESERIES_PATH} {configuration:/HISTORICAL_PATH} {configuration:/INTERVAL}"
+    Install: "python3 -m pip install --user -r {artifacts:decompressedPath}/com.tmmin.aquaz-s3ToSQL-TEST/requirements.txt"
+  Artifacts:
+  - Uri: "s3://mlops-iot-gg-artifact-ap-southeast-1-237236537285/com.tmmin.aquaz-s3ToSQL-TEST/1.0.0/com.tmmin.aquaz-s3ToSQL-TEST.zip"
+    Digest: "Bwt3mtwxWJo75sapwQ4V31fBOungLESOF4c0xxcFfJM="
+    Algorithm: "SHA-256"
+    Unarchive: "ZIP"
+    Permission:
+      Read: "OWNER"
+      Execute: "NONE"
+Lifecycle: {}
